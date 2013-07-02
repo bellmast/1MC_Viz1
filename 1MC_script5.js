@@ -286,7 +286,7 @@ function drawNetwork(data) {
 		checkAll("Elementz", false)
   	}
 	);
-	yesText = paper.text(20, 40, "Revenue – Yes").attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
+	yesText = paper.text(20, 40, "Revenue: Yes").attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
 	yesText.hover(function() {
 		allSet.hide()
 		yesSet.show()
@@ -302,7 +302,7 @@ function drawNetwork(data) {
 		checkAll("Elementz", false)
   	}
 	);
-	noText = paper.text(20, 55, "Revenue – No, N/A").attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
+	noText = paper.text(20, 55, "Revenue: No, N/A").attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
 	noText.hover(function() {
 		allSet.hide()
 		noSet.show()
@@ -358,7 +358,7 @@ function yearClick(e) {
 			femaleSet.hide()
 		}
 	}
-	if (thisElement == "Revenue – Yes") {
+	if (thisElement == "Revenue: Yes") {
 		if (e.target.checked) {
 			yesCheck = true
 			if (maleCheck == true) {
@@ -372,7 +372,7 @@ function yearClick(e) {
 			yesSet.hide()
 		}
 	}
-	if (thisElement == "Revenue – No, N/A") {
+	if (thisElement == "Revenue: No, N/A") {
 		if (e.target.checked) {
 			noCheck = true
 			if (maleCheck == true) {
