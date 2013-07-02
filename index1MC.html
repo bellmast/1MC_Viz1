@@ -1,0 +1,56 @@
+<html>  
+    <head>  
+        <title>1 Million Cups Kansas City Survey</title>  
+        <script type="text/javascript" src="https://raw.github.com/DmitryBaranovskiy/raphael/master/raphael-min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script> 
+	<script type="text/javascript" src="1MC_script4.js"></script>
+	
+	<style type="text/css">  
+            #canvas_container {  
+                width: 800px;  
+                border: 1px solid #aaa;
+                padding:10px;
+		position: relative;  
+            } 
+	    #logo {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		padding:10px;	
+	   }
+	    #yearbutton_radio {
+		font-family:arial;
+		color:#918070;
+		font-weight:450;		
+	   }
+	     #yearbutton_space {
+		font-family:arial;
+		color:#F58823;		
+	   }
+	   #about {
+	   font-family:arial;
+	   font-size: 12px;
+	   }
+        </style>  
+    </head>  
+    <body> 
+	<div id="canvas_container" width="800px" height="700px">
+	<div id="yearbutton_space">
+		<span id="yearbutton_label_space"><b>Select elements to display:</b></span>
+		<form name="Elementz">
+			<div id="yearbutton_radio" class="ui-buttonset" aria-disabled="false">
+				<input type="checkbox" id="Males" value="Males" name="yearbutton_radio" class="ui-helper-hidden-accessible"><label for="Males" aria-pressed="false" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false"><span class="ui-button-text">Males</span></label>
+				<input type="checkbox" id="Females" value="Females" name="yearbutton_radio" class="ui-helper-hidden-accessible"><label for="Females" aria-pressed="false" class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Females</span></label>
+				<br/><input type="checkbox" id="Revenue – Yes" value="Revenue – Yes" name="yearbutton_radio" class="ui-helper-hidden-accessible"><label for="Revenue – Yes" aria-pressed="false" class="ui-button ui-widget ui-state-default ui-button-text-only ui-state-active" role="button" aria-disabled="false"><span class="ui-button-text">Revenue – Yes</span></label>
+				<input type="checkbox" id="Revenue – No, N/A" value="Revenue – No, N/A" name="yearbutton_radio" class="ui-helper-hidden-accessible"><label for="Revenue – No, N/A" aria-pressed="false" class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Revenue – No, N/A</span></label>
+				<br/><input type="checkbox" id="Connection Lines" value="Connection Lines" name="yearbutton_radio" class="ui-helper-hidden-accessible"><label for="Connection Lines" aria-pressed="false" class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Connection Lines</span></label>
+				<br/><br/><span id="about"><strong>Instructions:</strong> Check at least one gender, and at least one revenue category from the bottom-left to display the relevant data.  Connection lines can be toggled independently.  The legend at the top-left also has rollover features which override the checkboxes.</span>
+			</div>
+		</form>
+	</div> 
+	<div id="logo"><img src="OneMillionCupsREV.jpg" width="160"></div>
+	</div>
+	<div id="about"><p><strong>About:</strong> This network visualization maps out the relationship between attendees at 1 Million Cups and other local events/programs with which they are associated.  The event that most people have in common, Startup Weekend, sits at the center of the map.  The remaining organizations spiral out in rank order, with both size and radii from the center of the map proportional to how many people listed an association with it.  The colored squares and circles each represent an individual, and the size is proportional to how many organizations that individual listed.  The location of each individual on the map is determined by the average coordinates of the organizations to which they're connected.</p></div>
+    </body>  
+</html>  
