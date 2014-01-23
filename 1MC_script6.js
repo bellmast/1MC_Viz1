@@ -9,7 +9,7 @@ var legendWidth = 166;
 var legendHeight = 75;
 var checkBoxesHeight = 21;
 var padding = 10;
-
+newRadiiArray = []
 
 
 $(document).ready(function () {runProgram()});
@@ -193,6 +193,7 @@ function drawNetwork(data) {
                         avgyCoord = totalyCoords/currentLength
                         currentLength2 = currentLength*1.5
                         newRadius = Math.log(((1/currentLength)*1000))*50
+                        newRadiiArray.push(newRadius)
                         theta = Math.atan2(avgyCoord - canvasHeight/2, avgxCoord - canvasWidth/2)
                         avgxCoord = canvasWidth/2 + newRadius*Math.cos(theta)
                         avgyCoord = canvasHeight/2 + newRadius*Math.sin(theta)
