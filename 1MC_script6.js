@@ -192,7 +192,7 @@ function drawNetwork(data) {
                         avgxCoord = totalxCoords/currentLength
                         avgyCoord = totalyCoords/currentLength
                         currentLength2 = currentLength*1.5
-                        newRadius = Math.log(((1/currentLength)*1000))*50
+                        newRadius = ((frameMaxRadius-20)/arrayCount)*currentLength
                         newRadiiArray.push(newRadius)
                         theta = Math.atan2(avgyCoord - canvasHeight/2, avgxCoord - canvasWidth/2)
                         avgxCoord = canvasWidth/2 + newRadius*Math.cos(theta)
