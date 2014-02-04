@@ -44,7 +44,7 @@ function drawNetwork(data) {
 
     myArrayMax = myArray[arrayCount-1]
 
-    slots = canvasWidth/(arrayCount-2+2)
+    slots = canvasWidth/(arrayCount-2+1)
     midY = canvasHeight/2
     midX = canvasWidth/2
 
