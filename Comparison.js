@@ -49,10 +49,10 @@ function drawNetwork(data) {
     midX = canvasWidth/2
 
     orgSet.push(paper.circle(midX, midY+(canvasHeight/3), myArrayMax*2))
-    textSet.push(paper.text(midX, midY+(canvasHeight/3)+myArrayMax, myArrayMax*2))
+    textSet.push(paper.text(midX, midY+(canvasHeight/3)+myArrayMax, "1MC"))
     oneMCy = midY+(canvasHeight/3)
     orgSet.push(paper.circle(midX, midY-(canvasHeight/3), myArrayMax*2))
-    textSet.push(paper.text(midX, midY-(canvasHeight/3)-myArrayMax, myArrayMax*2))
+    textSet.push(paper.text(midX, midY-(canvasHeight/3)-myArrayMax, "FT"))
     FTy = midY-(canvasHeight/3)
 
     count = 0
