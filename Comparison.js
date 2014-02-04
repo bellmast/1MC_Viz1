@@ -111,7 +111,7 @@ function drawNetwork(data) {
         avgyCoord = totalyCoords/currentLength
         masterLength = masterxArray.length
         for (x = 0; h < masterLength; x++) {
-            if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x) {
+            if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x] {
                 avgxCoord += Math.floor(Math.random()*10)
                 avgyCoord += Math.floor(Math.random()*10)
             }
