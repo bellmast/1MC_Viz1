@@ -23,10 +23,10 @@ function runProgram() {
 
 function drawNetwork(data) {
         
-    oneMCset = paper.set();
-    FTset = paper.set();
+    oneMCSet = paper.set();
+    FTSet = paper.set();
     linesFTSet = paper.set();
-    linesoneMCset = paper.set();
+    linesoneMCSet = paper.set();
     linesSet = paper.set()
     orgSet = paper.set();
     allSet = paper.set();
@@ -110,16 +110,16 @@ function drawNetwork(data) {
         avgyCoord = totalyCoords/currentLength
                         
         if (data[i][0] == "FT") {
-            FTset.push(paper.circle(avgxCoord, avgyCoord, currentLength*1.5).attr({fill:"#918070"}))
+            FTSet.push(paper.circle(avgxCoord, avgyCoord, currentLength*1.5).attr({fill:"#918070"}))
             for (p = 0; p < currentLength; p++) {                
                 linesFTSet.push(
                     paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".2"})
                 )
             }
         } else if (data[i][0] == "1MC") {
-            oneMCset.push(paper.circle(avgxCoord, avgyCoord, currentLength*1.5).attr({fill:"#F58823"}))
+            oneMCSet.push(paper.circle(avgxCoord, avgyCoord, currentLength*1.5).attr({fill:"#F58823"}))
             for (p = 0; p < currentLength; p++) {                
-                linesoneMCset.push(
+                linesoneMCSet.push(
                     paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".2"})
                 )
             }
@@ -128,12 +128,12 @@ function drawNetwork(data) {
   
                         
                        
-    linesSet.push(linesFTSet, linesoneMCset);
-    allSet.push(FTSet, oneMCset)
+    linesSet.push(linesFTSet, linesoneMCSet);
+    allSet.push(FTSet, oneMCSet)
 
     allSet.attr({stroke:"none"})
         
-    oneMCset.hide()
+    oneMCSet.hide()
     FTSet.hide()
     linesSet.hide()
         
@@ -144,11 +144,11 @@ function drawNetwork(data) {
     oneMCtext = paper.text(20, 10, "1MC").attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
     oneMCtext.hover(function() {
         allSet.hide()
-        oneMCset.show()
+        oneMCSet.show()
         linesSet.hide()
     },
         function () {
-            oneMCset.hide()
+            oneMCSet.hide()
             allSet.hide()
             oneMCcheck = false
             FTCheck = false
@@ -184,10 +184,10 @@ function yearClick(e) {
         if (thisElement == "1MC") {
                 if (e.target.checked) {
                         oneMCcheck = true
-                        oneMCset.show()
+                        oneMCSet.show()
                 } else {
                         oneMCcheck = false
-                        oneMCset.hide()
+                        oneMCSet.hide()
                 }
         }
         if (thisElement == "FT") {
@@ -211,9 +211,9 @@ function yearClick(e) {
 function checkLines() {
         if (lineTarget.checked) {
                 if (oneMCcheck == true) {
-                        linesoneMCset.show()
+                        linesoneMCSet.show()
                 } else {
-                        linesoneMCset.hide()
+                        linesoneMCSet.hide()
                 }
                 if (FTCheck == true) {
                         linesFTSet.show()
