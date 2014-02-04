@@ -44,7 +44,7 @@ function drawNetwork(data) {
 
     myArrayMax = myArray[arrayCount-1]
 
-    slots = canvasWidth/(arrayCount-2)
+    slots = canvasWidth/(arrayCount-2+2)
     midY = canvasHeight/2
     midX = canvasWidth/2
 
@@ -66,7 +66,7 @@ function drawNetwork(data) {
         radius = h*2
 
         count += 1
-        xcoord = (slots*count)-(radius*3)          
+        xcoord = (slots*count)          
 
         orgSet.push(paper.circle(xcoord, midY, radius))
         textSet.push(paper.text(xcoord, midY+radius, orgNames[i]))
