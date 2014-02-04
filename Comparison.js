@@ -109,7 +109,15 @@ function drawNetwork(data) {
         currentLength = currentxArray.length
         avgxCoord = totalxCoords/currentLength
         avgyCoord = totalyCoords/currentLength
-        
+        masterLength = masterxArray.length
+        for (x = 0; h < masterLength; x++) {
+            if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
+                avgxCoord += Math.floor(Math.random()*10)
+                avgyCoord += Math.floor(Math.random()*10)
+            }
+        }
+        masterxArray.push(avgxCoord)
+        masteryArray.push(avgyCoord)
                         
         if (data[i][0] == "FT") {
             FTSet.push(paper.circle(avgxCoord, avgyCoord, currentLength*1.5).attr({fill:"#918070"}))
