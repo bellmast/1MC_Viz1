@@ -185,7 +185,7 @@ function yearClick(e) {
                         oneMCcheck = true
                         oneMCset.show()
                 } else {
-                        1MCheck = false
+                        oneMCcheck = false
                         oneMCset.hide()
                 }
         }
