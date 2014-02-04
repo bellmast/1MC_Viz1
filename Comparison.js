@@ -49,7 +49,7 @@ function drawNetwork(data) {
 
     org.push(paper.circle(midX, midY+(canvasHeight/3), myArrayMax*2))
     textSet.push(paper.text(midX, midY+(canvasHeight/3)+myArrayMax, myArrayMax*2))
-    1MCy = midY+(canvasHeight/3)
+    oneMCy = midY+(canvasHeight/3)
     org.push(paper.circle(midX, midY-(canvasHeight/3), myArrayMax*2))
     textSet.push(paper.text(midX, midY-(canvasHeight/3)-myArrayMax, myArrayMax*2))
     FTy = midY-(canvasHeight/3)
@@ -90,8 +90,8 @@ function drawNetwork(data) {
             currentyArray.push(FTy)
             totalyCoords += FTy
         } else if (data[i][0] == "1MC") {
-            currentyArray.push(1MCy)
-            totalyCoords += 1MCy
+            currentyArray.push(oneMCy)
+            totalyCoords += oneMCy
         }
                 
 
