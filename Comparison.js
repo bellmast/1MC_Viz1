@@ -163,7 +163,6 @@ function drawNetwork(data) {
         linesSet.hide()
     },
         function () {
-            femaleSet.hide()
             allSet.hide()
             oneMCcheck = false
             FTCheck = false
