@@ -9,6 +9,8 @@ var legendWidth = 166;
 var legendHeight = 75;
 var checkBoxesHeight = 21;
 var padding = 10;
+newRadiiArray = []
+
 
 $(document).ready(function () {runProgram()});
 
@@ -21,10 +23,10 @@ function runProgram() {
 
 function drawNetwork(data) {
         
-    1MCset = paper.set();
+    oneMCset = paper.set();
     FTset = paper.set();
     linesFTSet = paper.set();
-    lines1MCSet = paper.set();
+    linesoneMCset = paper.set();
     orgSet = paper.set();
     allSet = paper.set();
     textSet = paper.set();
@@ -114,9 +116,9 @@ function drawNetwork(data) {
                 )
             }
         } else if (data[i][0] == "1MC") {
-            1MCset.push(paper.circle(avgxCoord, avgyCoord, currentLength*1.5).attr({fill:"#F58823"}))
+            oneMCset.push(paper.circle(avgxCoord, avgyCoord, currentLength*1.5).attr({fill:"#F58823"}))
             for (p = 0; p < currentLength; p++) {                
-                lines1MCSet.push(
+                linesoneMCset.push(
                     paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".2"})
                 )
             }
@@ -125,12 +127,12 @@ function drawNetwork(data) {
   
                         
                        
-    linesSet.push(linesFTSet, lines1MCSet);
-    allSet.push(FTSet, 1MCSet)
+    linesSet.push(linesFTSet, linesoneMCset);
+    allSet.push(FTSet, oneMCset)
 
     allSet.attr({stroke:"none"})
         
-    1MCSet.hide()
+    oneMCset.hide()
     FTSet.hide()
     linesSet.hide()
         
@@ -141,11 +143,11 @@ function drawNetwork(data) {
     1MCText = paper.text(20, 10, "1MC").attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
     1MCText.hover(function() {
         allSet.hide()
-        1MCSet.show()
+        oneMCset.show()
         linesSet.hide()
     },
         function () {
-            1MCSet.hide()
+            oneMCset.hide()
             allSet.hide()
             1MCCheck = false
             FTCheck = false
@@ -181,10 +183,10 @@ function yearClick(e) {
         if (thisElement == "1MC") {
                 if (e.target.checked) {
                         1MCCheck = true
-                        1MCSet.show()
+                        oneMCset.show()
                 } else {
                         1MCheck = false
-                        1MCSet.hide()
+                        oneMCset.hide()
                 }
         }
         if (thisElement == "FT") {
@@ -208,9 +210,9 @@ function yearClick(e) {
 function checkLines() {
         if (lineTarget.checked) {
                 if (1MCCheck == true) {
-                        lines1MCSet.show()
+                        linesoneMCset.show()
                 } else {
-                        lines1MCSet.hide()
+                        linesoneMCset.hide()
                 }
                 if (FTCheck == true) {
                         linesFTSet.show()
