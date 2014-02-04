@@ -66,7 +66,7 @@ function drawNetwork(data) {
         radius = h*2
 
         count += 1
-        xcoord = (slots*count)-(radius*2)          
+        xcoord = (slots*count)-(radius*4)          
 
         orgSet.push(paper.circle(xcoord, midY, radius))
         textSet.push(paper.text(xcoord, midY+radius, orgNames[i]))
