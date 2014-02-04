@@ -27,7 +27,7 @@ function drawNetwork(data) {
     FTset = paper.set();
     linesFTSet = paper.set();
     linesoneMCset = paper.set();
-    lineSet = paper.set()
+    linesSet = paper.set()
     orgSet = paper.set();
     allSet = paper.set();
     textSet = paper.set();
