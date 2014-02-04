@@ -9,8 +9,8 @@ var legendWidth = 166;
 var legendHeight = 75;
 var checkBoxesHeight = 21;
 var padding = 10;
-masterxArray = [];
-masteryArray = [];
+var masterxArray = []
+var masteryArray = []
 
 
 $(document).ready(function () {runProgram()});
