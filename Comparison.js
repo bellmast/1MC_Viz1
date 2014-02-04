@@ -23,9 +23,9 @@ function runProgram() {
 
 function drawNetwork(data) {
         
-        1MCset = paper.set()
-        FTset = paper.set()
-        linesFTSet = paper.set()
+        1MCset = paper.set();
+        FTset = paper.set();
+        linesFTSet = paper.set();
         lines1MCSet = paper.set();
         orgSet = paper.set();
         allSet = paper.set();
