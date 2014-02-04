@@ -140,8 +140,8 @@ function drawNetwork(data) {
     paper.circle(10,25,5).attr({fill:"#918070", stroke:"none"})
         
 
-    1MCText = paper.text(20, 10, "1MC").attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
-    1MCText.hover(function() {
+    oneMCtext = paper.text(20, 10, "1MC").attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
+    oneMCtext.hover(function() {
         allSet.hide()
         oneMCset.show()
         linesSet.hide()
@@ -149,7 +149,7 @@ function drawNetwork(data) {
         function () {
             oneMCset.hide()
             allSet.hide()
-            1MCCheck = false
+            oneMCcheck = false
             FTCheck = false
             checkAll("Elementz", false)
         }
@@ -164,7 +164,7 @@ function drawNetwork(data) {
         function () {
             femaleSet.hide()
             allSet.hide()
-            1MCCheck = false
+            oneMCcheck = false
             FTCheck = false
             checkAll("Elementz", false)
         }
@@ -173,7 +173,7 @@ function drawNetwork(data) {
     $('#yearbutton_radio').click(function (e) {yearClick(e);});
 }
 
-1MCCheck = false
+oneMCcheck = false
 FTCheck = false
 lineTarget = undefined
 
@@ -182,7 +182,7 @@ function yearClick(e) {
         var thisElement = e.target.value
         if (thisElement == "1MC") {
                 if (e.target.checked) {
-                        1MCCheck = true
+                        oneMCcheck = true
                         oneMCset.show()
                 } else {
                         1MCheck = false
@@ -209,7 +209,7 @@ function yearClick(e) {
 
 function checkLines() {
         if (lineTarget.checked) {
-                if (1MCCheck == true) {
+                if (oneMCcheck == true) {
                         linesoneMCset.show()
                 } else {
                         linesoneMCset.hide()
