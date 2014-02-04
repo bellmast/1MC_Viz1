@@ -9,7 +9,8 @@ var legendWidth = 166;
 var legendHeight = 75;
 var checkBoxesHeight = 21;
 var padding = 10;
-newRadiiArray = []
+masterxArray = []
+masteryArray = []
 
 
 $(document).ready(function () {runProgram()});
@@ -30,9 +31,7 @@ function drawNetwork(data) {
     linesSet = paper.set()
     orgSet = paper.set();
     allSet = paper.set();
-    textSet = paper.set();
-
-        
+    textSet = paper.set();     
 
 
     orgNames = data[0]
@@ -110,6 +109,15 @@ function drawNetwork(data) {
         currentLength = currentxArray.length
         avgxCoord = totalxCoords/currentLength
         avgyCoord = totalyCoords/currentLength
+        masterLength = masterxArray.length
+        for (x = 0; h < masterLength; x++) {
+            if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
+                avgxCoord += Math.floor(Math.random()*10)
+                avgyCoord += Math.floor(Math.random()*10)
+            }
+        }
+        masterxArray.push(avgxCoord)
+        masteryArray.push(avgyCoord)
                         
         if (data[i][0] == "FT") {
             FTSet.push(paper.circle(avgxCoord, avgyCoord, currentLength*1.5).attr({fill:"#918070"}))
