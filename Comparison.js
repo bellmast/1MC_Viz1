@@ -113,8 +113,8 @@ function drawNetwork(data) {
         masterLength = masterxArray.length
         for (x = 0; x < masterLength; x++) {
             if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
-                avgxCoord += Math.floor(Math.random()*10)+5
-                avgyCoord += Math.floor(Math.random()*10)+5
+                avgxCoord += Math.floor(Math.random()*10)+10
+                avgyCoord += Math.floor(Math.random()*10)+10
             }
         }
         masterxArray.push(avgxCoord)
@@ -124,7 +124,7 @@ function drawNetwork(data) {
             FTSet.push(paper.circle(avgxCoord, avgyCoord, currentLength*1.5).attr({fill:"#918070"}))
             for (p = 0; p < currentLength; p++) {                
                 linesFTSet.push(
-                    paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".2", "stroke-dasharray":"---"})
+                    paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".2", "stroke-dasharray":"--"})
                 )
             }
         } else if (data[i][0] == "1MC") {
