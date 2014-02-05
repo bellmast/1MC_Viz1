@@ -9,8 +9,6 @@ var legendWidth = 166;
 var legendHeight = 75;
 var checkBoxesHeight = 21;
 var padding = 10;
-masterxArray = []
-masteryArray = []
 
 
 $(document).ready(function () {runProgram()});
@@ -110,7 +108,9 @@ function drawNetwork(data) {
         avgxCoord = totalxCoords/currentLength
         avgyCoord = totalyCoords/currentLength
         masterLength = masterxArray.length
-        for (x = 0; h < masterLength; x++) {
+        masterxArray = []
+        masteryArray = []
+        for (x = 0; x < masterLength; x++) {
             if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
                 avgxCoord += Math.floor(Math.random()*10)
                 avgyCoord += Math.floor(Math.random()*10)
