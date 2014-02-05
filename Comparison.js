@@ -79,6 +79,9 @@ function drawNetwork(data) {
     textSet.attr({"font-weight":"450", "font-size":12, fill:"#FF6620", "font-family":"Arial"})
     orgSet.attr({stroke:0}).glow({width:3, color:"#5b5a59"})
 
+    masterxArray = []
+    masteryArray = []
+
     for (i = 1; i < pathCount; i++) {
         currentxArray = []
         currentyArray = []
@@ -108,8 +111,6 @@ function drawNetwork(data) {
         avgxCoord = totalxCoords/currentLength
         avgyCoord = totalyCoords/currentLength
         masterLength = masterxArray.length
-        masterxArray = []
-        masteryArray = []
         for (x = 0; x < masterLength; x++) {
             if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
                 avgxCoord += Math.floor(Math.random()*10)
