@@ -9,7 +9,7 @@ var legendWidth = 166;
 var legendHeight = 75;
 var checkBoxesHeight = 21;
 var padding = 10;
-
+var radius = 5
 
 $(document).ready(function () {runProgram()});
 
@@ -81,6 +81,7 @@ function drawNetwork(data) {
 
     masterxArray = []
     masteryArray = []
+    masterCirclePackingArray = []
 
     for (i = 1; i < pathCount; i++) {
         currentxArray = []
@@ -110,40 +111,33 @@ function drawNetwork(data) {
         currentLength = currentxArray.length
         avgxCoord = totalxCoords/currentLength
         avgyCoord = totalyCoords/currentLength
+
         masterLength = masterxArray.length
+
         for (x = 0; x < masterLength; x++) {
             if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
-                var xOrY = Math.floor(Math.random()*4)
-                if (xOrY == 0) {
-                    avgxCoord += (Math.floor(Math.random()*10)+5)
-                    avgyCoord += (Math.floor(Math.random()*10)+5)
-                } 
-                else if (xOrY == 1) {
-                    avgxCoord -= (Math.floor(Math.random()*10)+5)
-                    avgyCoord -= (Math.floor(Math.random()*10)+5)
-                }
-                else if (xOrY == 2) {
-                    avgxCoord += (Math.floor(Math.random()*10)+5)
-                    avgyCoord -= (Math.floor(Math.random()*10)+5)
-                }
-                else if (xOrY == 3) {
-                    avgxCoord -= (Math.floor(Math.random()*10)+5)
-                    avgyCoord += (Math.floor(Math.random()*10)+5)
+                
+                var avgxCoord += (radius*Math.cos(2*Math.PI/6*masterCirclePackingArray[x]))
+                var avgyCoord += (radius*Math.sin(2*Math.PI/6*masterCirclePackingArray[x]))
+
+                masterCirclePackingArray[x] += 1
+
                 }
             }
         }
         masterxArray.push(avgxCoord)
         masteryArray.push(avgyCoord)
+        masterCirclePackingArray.push(0)
                         
         if (data[i][0] == "FT") {
-            FTSet.push(paper.circle(avgxCoord, avgyCoord, 5).attr({fill:"#918070"}))
+            FTSet.push(paper.circle(avgxCoord, avgyCoord, radius).attr({fill:"#918070"}))
             for (p = 0; p < currentLength; p++) {                
                 linesFTSet.push(
                     paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".5", "stroke-dasharray":"--"})
                 )
             }
         } else if (data[i][0] == "1MC") {
-            oneMCSet.push(paper.circle(avgxCoord, avgyCoord, 5).attr({fill:"#F58823"}))
+            oneMCSet.push(paper.circle(avgxCoord, avgyCoord, radius).attr({fill:"#F58823"}))
             for (p = 0; p < currentLength; p++) {                
                 linesoneMCSet.push(
                     paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".5"})
