@@ -117,10 +117,14 @@ function drawNetwork(data) {
         for (x = 0; x < masterLength; x++) {
             if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
                 
-                avgxCoord += (ourRadius*Math.cos(2*Math.PI/6*masterCirclePackingArray[x]))
-                avgyCoord += (ourRadius*Math.sin(2*Math.PI/6*masterCirclePackingArray[x]))
+                masterCirclePackingArray[x] += 1
 
-                masterCirclePackingArray[x] += 1    
+                layer = Math.floor((masterCirclePackingArray[x]-1)/6)
+
+                avgxCoord += ((ourRadius*layer)*Math.cos(2*Math.PI/6*masterCirclePackingArray[x]))
+                avgyCoord += ((ourRadius*layer)*Math.sin(2*Math.PI/6*masterCirclePackingArray[x]))
+
+                   
             }
         }
         masterxArray.push(avgxCoord)
