@@ -114,21 +114,21 @@ function drawNetwork(data) {
         for (x = 0; x < masterLength; x++) {
             if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
                 var xOrY = Math.floor(Math.random()*4)
-                if (xOrY == 1) {
-                    avgxCoord += (Math.floor(Math.random()*10)+10)
-                    avgyCoord += (Math.floor(Math.random()*10)+10)
+                if (xOrY == 0) {
+                    avgxCoord += (Math.floor(Math.random()*10)+5)
+                    avgyCoord += (Math.floor(Math.random()*10)+5)
                 } 
+                else if (xOrY == 1) {
+                    avgxCoord -= (Math.floor(Math.random()*10)+5)
+                    avgyCoord -= (Math.floor(Math.random()*10)+5)
+                }
                 else if (xOrY == 2) {
-                    avgxCoord -= (Math.floor(Math.random()*10)+10)
-                    avgyCoord -= (Math.floor(Math.random()*10)+10)
+                    avgxCoord += (Math.floor(Math.random()*10)+5)
+                    avgyCoord -= (Math.floor(Math.random()*10)+5)
                 }
                 else if (xOrY == 3) {
-                    avgxCoord += (Math.floor(Math.random()*10)+10)
-                    avgyCoord -= (Math.floor(Math.random()*10)+10)
-                }
-                else if (xOrY == 4) {
-                    avgxCoord -= (Math.floor(Math.random()*10)+10)
-                    avgyCoord += (Math.floor(Math.random()*10)+10)
+                    avgxCoord -= (Math.floor(Math.random()*10)+5)
+                    avgyCoord += (Math.floor(Math.random()*10)+5)
                 }
             }
         }
