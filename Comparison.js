@@ -120,9 +120,7 @@ function drawNetwork(data) {
                 avgxCoord += (radius*Math.cos(2*Math.PI/6*masterCirclePackingArray[x]))
                 avgyCoord += (radius*Math.sin(2*Math.PI/6*masterCirclePackingArray[x]))
 
-                masterCirclePackingArray[x] += 1
-
-                }
+                masterCirclePackingArray[x] += 1    
             }
         }
         masterxArray.push(avgxCoord)
