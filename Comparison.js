@@ -9,7 +9,7 @@ var legendWidth = 166;
 var legendHeight = 75;
 var checkBoxesHeight = 21;
 var padding = 10;
-var radius = 5
+var ourRadius = 5
 
 $(document).ready(function () {runProgram()});
 
@@ -117,8 +117,8 @@ function drawNetwork(data) {
         for (x = 0; x < masterLength; x++) {
             if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
                 
-                avgxCoord += (radius*Math.cos(2*Math.PI/6*masterCirclePackingArray[x]))
-                avgyCoord += (radius*Math.sin(2*Math.PI/6*masterCirclePackingArray[x]))
+                avgxCoord += (ourRadius*Math.cos(2*Math.PI/6*masterCirclePackingArray[x]))
+                avgyCoord += (ourRadius*Math.sin(2*Math.PI/6*masterCirclePackingArray[x]))
 
                 masterCirclePackingArray[x] += 1    
             }
@@ -128,14 +128,14 @@ function drawNetwork(data) {
         masterCirclePackingArray.push(0)
                         
         if (data[i][0] == "FT") {
-            FTSet.push(paper.circle(avgxCoord, avgyCoord, radius).attr({fill:"#918070"}))
+            FTSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#918070"}))
             for (p = 0; p < currentLength; p++) {                
                 linesFTSet.push(
                     paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".5", "stroke-dasharray":"--"})
                 )
             }
         } else if (data[i][0] == "1MC") {
-            oneMCSet.push(paper.circle(avgxCoord, avgyCoord, radius).attr({fill:"#F58823"}))
+            oneMCSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#F58823"}))
             for (p = 0; p < currentLength; p++) {                
                 linesoneMCSet.push(
                     paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".5"})
