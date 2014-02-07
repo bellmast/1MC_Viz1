@@ -32,7 +32,8 @@ function drawNetwork(data) {
     linesSet = paper.set()
     orgSet = paper.set();
     allSet = paper.set();
-    textSet = paper.set();     
+    textSet = paper.set(); 
+    randoSet = paper.set();    
 
 
     orgNames = data[0]
@@ -153,9 +154,10 @@ function drawNetwork(data) {
             else if (data[i][0] == "1MC") {
                 avgyCoord = randomCoord(oneMCy+(myArrayMax*2+20), canvasHeight-checkBoxesHeight-padding)
             }
+            randoSet = "yes"
         }
         else {
-
+            randoSet = "no"
             avgxCoord = totalxCoords/currentLength
             avgyCoord = totalyCoords/currentLength
 
@@ -189,23 +191,31 @@ function drawNetwork(data) {
                         
         if (data[i][0] == "FT") {
             FTSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#918070"})).toBack()
-            for (p = 0; p < currentLength; p++) {                
-                linesFTSet.push(
-                    paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".5", "stroke-dasharray":"--"})
-                )
+            for (p = 0; p < currentLength; p++) {  
+                var newLine = paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".5", "stroke-dasharray":"--"})  
+                if (randoSet == "no") {
+                    linesFTSet.push(newLine)
+                }            
+                else if (randoSet == "yes") {
+                    randoSet.push(newLine)
+                }
             }
         } else if (data[i][0] == "1MC") {
             oneMCSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#F58823"})).toBack()
-            for (p = 0; p < currentLength; p++) {                
-                linesoneMCSet.push(
-                    paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".4"})
-                )
+            for (p = 0; p < currentLength; p++) { 
+                var newLine = paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".4"})               
+                if (randoSet == "no") {
+                    linesoneMCSet.push(newLine)
+                }
+                else if (randoSet == "yes") {
+                    randoSet.push(newLine)
+                }
             }
         }
     }
   
                         
-                       
+    randoSet.hide()
     linesSet.push(linesFTSet, linesoneMCSet);
     allSet.push(FTSet, oneMCSet)
 
