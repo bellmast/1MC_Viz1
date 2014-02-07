@@ -154,10 +154,10 @@ function drawNetwork(data) {
             else if (data[i][0] == "1MC") {
                 avgyCoord = randomCoord(oneMCy+(myArrayMax*2+20), canvasHeight-checkBoxesHeight-padding)
             }
-            randoSet = "yes"
+            randoSetCheck = "yes"
         }
         else {
-            randoSet = "no"
+            randoSetCheck = "no"
             avgxCoord = totalxCoords/currentLength
             avgyCoord = totalyCoords/currentLength
 
@@ -193,10 +193,10 @@ function drawNetwork(data) {
             FTSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#918070"})).toBack()
             for (p = 0; p < currentLength; p++) {  
                 var newLine = paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".5", "stroke-dasharray":"--"})  
-                if (randoSet == "no") {
+                if (randoSetCheck == "no") {
                     linesFTSet.push(newLine)
                 }            
-                else if (randoSet == "yes") {
+                else if (randoSetCheck == "yes") {
                     randoSet.push(newLine)
                 }
             }
@@ -204,10 +204,10 @@ function drawNetwork(data) {
             oneMCSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#F58823"})).toBack()
             for (p = 0; p < currentLength; p++) { 
                 var newLine = paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".4"})               
-                if (randoSet == "no") {
+                if (randoSetCheck == "no") {
                     linesoneMCSet.push(newLine)
                 }
-                else if (randoSet == "yes") {
+                else if (randoSetCheck == "yes") {
                     randoSet.push(newLine)
                 }
             }
