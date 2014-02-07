@@ -83,8 +83,8 @@ function drawNetwork(data) {
     radius = myArray[2]*2
     orgSet.push(paper.circle(slots*3, midY, radius))
     textSet.push(paper.text(slots*3, midY+radius+10, orgNames[2]))
-    xcoordArray.push(slots)
-    ycoordArray.push(midY+(1/2*midY))
+    xcoordArray.push(slots*3)
+    ycoordArray.push(midY))
 
     radius = myArray[3]*2
     orgSet.push(paper.circle(slots*3, midY-(1/2*midY), radius))
