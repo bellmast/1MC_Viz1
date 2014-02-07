@@ -160,7 +160,7 @@ function drawNetwork(data) {
     linesSet.push(linesFTSet, linesoneMCSet);
     allSet.push(FTSet, oneMCSet)
 
-    allSet.attr({stroke:"#FFFFFF", "stroke-width":".1"})
+    allSet.attr({stroke:"#FFFFFF", "stroke-width":".3"})
         
     oneMCSet.hide()
     FTSet.hide()
