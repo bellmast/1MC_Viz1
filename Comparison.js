@@ -5,8 +5,8 @@ var canvasWidth = 800;
 var canvasHeight= 700;
 var logoWidth = 160;
 var logoHeight = 74;
-var legendWidth = 166;
-var legendHeight = 75;
+var legendWidth = 75;
+var legendHeight = 40;
 var checkBoxesHeight = 21;
 var padding = 10;
 var ourRadius = 5
@@ -19,6 +19,9 @@ function runProgram() {
     {drawNetwork(data)});       
 }  
 
+function randomCoord(minC, maxC) {
+        return Math.floor(Math.random() * (maxC - minC + 1) + minC)
+        }
 
 function drawNetwork(data) {
         
@@ -75,6 +78,7 @@ function drawNetwork(data) {
 
     // }
 
+
     radius = myArray[2]*2
     orgSet.push(paper.circle(slots, midY+(1/2*midY), radius))
     textSet.push(paper.text(slots, midY+(1/2*midY)+radius+10, orgNames[2]))
@@ -111,9 +115,17 @@ function drawNetwork(data) {
         if (data[i][0] == "FT") {
             currentyArray.push(FTy)
             totalyCoords += FTy
+            if (data[i][1] == 1) {
+                currentxArray.push(midX)
+                currentyArray.push(oneMCy)
+            }
         } else if (data[i][0] == "1MC") {
             currentyArray.push(oneMCy)
             totalyCoords += oneMCy
+            if (data[i][1] == 1) {
+                currentxArray.push(midX)
+                currentyArray.push(FTy)
+            }
         }
                 
 
@@ -126,34 +138,50 @@ function drawNetwork(data) {
                 totalyCoords += ycoordArray[h-2]
             }
         }
+        
         currentLength = currentxArray.length
-        avgxCoord = totalxCoords/currentLength
-        avgyCoord = totalyCoords/currentLength
 
-        masterLength = masterxArray.length
-
-        for (x = 0; x < masterLength; x++) {
-            if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
-                
-                masterCirclePackingArray[x] += 1
-
-                radiusModifier = Math.floor((masterCirclePackingArray[x]-1)/6)*.5+1
-                layer = Math.floor((masterCirclePackingArray[x]-1)/6)+1
-                layerArray.push(layer)
-                if (layer%2 == 1) {
-                    avgxCoord += ((ourRadius*radiusModifier*1.5)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
-                    avgyCoord += ((ourRadius*radiusModifier*1.5)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
-                }
-                else if (layer%2 == 0) {
-                    avgxCoord += ((ourRadius*radiusModifier*1.5)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
-                    avgyCoord += ((ourRadius*radiusModifier*1.5)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
-                }
-                
+        if (currentxArray.length == 1) {
+            avgxCoord = randomCoord(padding+legendWidth, canvasWidth-logoWidth-padding)
+            if (data[i][0] == "FT") {
+                avgyCoord = randomCoord(padding, FTy-(myArrayMax*2+20))
+            }
+            else if (data[i][0] == "1MC") {
+                avgyCoord = randomCoord(oneMCy+(myArrayMax*2+20), canvasHeight-checkBoxesHeight-padding)
             }
         }
-        masterxArray.push(avgxCoord)
-        masteryArray.push(avgyCoord)
-        masterCirclePackingArray.push(0)
+        else {
+
+            avgxCoord = totalxCoords/currentLength
+            avgyCoord = totalyCoords/currentLength
+
+            masterLength = masterxArray.length
+
+
+
+            for (x = 0; x < masterLength; x++) {
+                if (avgxCoord == masterxArray[x] && avgyCoord == masteryArray[x]) {
+                    
+                    masterCirclePackingArray[x] += 1
+
+                    radiusModifier = Math.floor((masterCirclePackingArray[x]-1)/6)*.5+1
+                    layer = Math.floor((masterCirclePackingArray[x]-1)/6)+1
+                    layerArray.push(layer)
+                    if (layer%2 == 1) {
+                        avgxCoord += ((ourRadius*radiusModifier*1.5)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
+                        avgyCoord += ((ourRadius*radiusModifier*1.5)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
+                    }
+                    else if (layer%2 == 0) {
+                        avgxCoord += ((ourRadius*radiusModifier*1.5)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
+                        avgyCoord += ((ourRadius*radiusModifier*1.5)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
+                    }
+                    
+                }
+            }
+            masterxArray.push(avgxCoord)
+            masteryArray.push(avgyCoord)
+            masterCirclePackingArray.push(0)
+        }
                         
         if (data[i][0] == "FT") {
             FTSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#918070"})).toBack()
