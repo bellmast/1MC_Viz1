@@ -117,14 +117,18 @@ function drawNetwork(data) {
             totalyCoords += FTy
             if (data[i][1] == 1) {
                 currentxArray.push(midX)
+                totalxCoords += midX
                 currentyArray.push(oneMCy)
+                totalyCoords += oneMCy
             }
         } else if (data[i][0] == "1MC") {
             currentyArray.push(oneMCy)
             totalyCoords += oneMCy
             if (data[i][1] == 1) {
                 currentxArray.push(midX)
+                totalxCoords += midX
                 currentyArray.push(FTy)
+                totalyCoords += FTy
             }
         }
                 
