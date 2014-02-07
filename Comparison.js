@@ -120,15 +120,16 @@ function drawNetwork(data) {
                 
                 masterCirclePackingArray[x] += 1
 
-                layer = Math.floor((masterCirclePackingArray[x]-1)/6)*.5+1
+                radiusModifier = Math.floor((masterCirclePackingArray[x]-1)/6)*.5+1
+                layer = Math.floor((masterCirclePackingArray[x]-1)/6)+1
                 layerArray.push(layer)
                 if (layer%2 == 1) {
-                    avgxCoord += ((ourRadius*layer*1.5)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
-                    avgyCoord += ((ourRadius*layer*1.5)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
+                    avgxCoord += ((ourRadius*radiusModifier*1.5)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
+                    avgyCoord += ((ourRadius*radiusModifier*1.5)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
                 }
                 else if (layer%2 == 0) {
-                    avgxCoord += ((ourRadius*layer*1.5)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
-                    avgyCoord += ((ourRadius*layer*1.5)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
+                    avgxCoord += ((ourRadius*radiusModifier*1.5)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
+                    avgyCoord += ((ourRadius*radiusModifier*1.5)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
                 }
                 
             }
@@ -159,7 +160,7 @@ function drawNetwork(data) {
     linesSet.push(linesFTSet, linesoneMCSet);
     allSet.push(FTSet, oneMCSet)
 
-    allSet.attr({stroke:"#FFFFFF"})
+    allSet.attr({stroke:"none"})
         
     oneMCSet.hide()
     FTSet.hide()
