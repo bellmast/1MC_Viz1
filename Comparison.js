@@ -60,21 +60,35 @@ function drawNetwork(data) {
 
     count = 0
 
-    for (i = 2; i < arrayCount; i++) {
-        h = myArray[i]
-        radius = h*2
+    // for (i = 2; i < arrayCount; i++) {
+    //     h = myArray[i]
+    //     radius = h*2
 
-        count += 1
-        xcoord = (slots*count)          
+    //     count += 1
+    //     xcoord = (slots*count)          
 
-        orgSet.push(paper.circle(xcoord, midY, radius))
-        textSet.push(paper.text(xcoord, midY+radius+10, orgNames[i]))
+    //     orgSet.push(paper.circle(xcoord, midY, radius))
+    //     textSet.push(paper.text(xcoord, midY+radius+10, orgNames[i]))
 
-        xcoordArray.push(xcoord)
-        ycoordArray.push(midY)
+    //     xcoordArray.push(xcoord)
+    //     ycoordArray.push(midY)
 
-    }
+    // }
 
+    orgSet.push(paper.circle(slots, midY+(1/2*midY), radius))
+    textSet.push(paper.text(slots, midY+(1/2*midY)+radius+10, orgnames[2]))
+    xcoordArray.push(slots)
+    ycoordArray.push(midY+(1/2*midY))
+
+    orgSet.push(paper.circle(slots*3, midY-(1/2*midY), radius))
+    textSet.push(paper.text(slots*3, midY-(1/2*midY)-radius-10, orgnames[3]))
+    xcoordArray.push(slots*3)
+    ycoordArray.push(midY-(1/2*midY))
+
+    orgSet.push(paper.circle(slots*3, midY+(1/2*midY), radius))
+    textSet.push(paper.text(slots*3, midY+(1/2*midY)+radius+10, orgnames[4]))
+    xcoordArray.push(slots*3)
+    ycoordArray.push(midY+(1/2*midY))
         
     textSet.attr({"font-weight":"450", "font-size":12, fill:"#FF6620", "font-family":"Arial"})
     orgSet.attr({stroke:0}).glow({width:3, color:"#5b5a59"})
