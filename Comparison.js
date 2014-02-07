@@ -139,14 +139,14 @@ function drawNetwork(data) {
         masterCirclePackingArray.push(0)
                         
         if (data[i][0] == "FT") {
-            FTSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#918070"}))
+            FTSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#918070"})).toBack()
             for (p = 0; p < currentLength; p++) {                
                 linesFTSet.push(
                     paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".5", "stroke-dasharray":"--"})
                 )
             }
         } else if (data[i][0] == "1MC") {
-            oneMCSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#F58823"}))
+            oneMCSet.push(paper.circle(avgxCoord, avgyCoord, ourRadius).attr({fill:"#F58823"})).toBack()
             for (p = 0; p < currentLength; p++) {                
                 linesoneMCSet.push(
                     paper.path("M"+avgxCoord+" "+avgyCoord+"L"+currentxArray[p]+" "+currentyArray[p]).attr({"stroke-width": ".4"})
