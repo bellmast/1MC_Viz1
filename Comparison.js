@@ -119,7 +119,7 @@ function drawNetwork(data) {
                 
                 masterCirclePackingArray[x] += 1
 
-                layer = Math.floor((masterCirclePackingArray[x]-1)/6)+1
+                layer = Math.floor((masterCirclePackingArray[x]-1)/6)*.5+1
 
                 if (layer%2 == 1) {
                     avgxCoord += ((ourRadius*layer*2)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
