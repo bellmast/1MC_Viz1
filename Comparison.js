@@ -82,6 +82,7 @@ function drawNetwork(data) {
     masterxArray = []
     masteryArray = []
     masterCirclePackingArray = []
+    layerArray = []
 
     for (i = 1; i < pathCount; i++) {
         currentxArray = []
@@ -120,14 +121,14 @@ function drawNetwork(data) {
                 masterCirclePackingArray[x] += 1
 
                 layer = Math.floor((masterCirclePackingArray[x]-1)/6)*.5+1
-
+                layerArray.push(layer)
                 if (layer%2 == 1) {
-                    avgxCoord += ((ourRadius*layer*2)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
-                    avgyCoord += ((ourRadius*layer*2)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
+                    avgxCoord += ((ourRadius*layer*1.5)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
+                    avgyCoord += ((ourRadius*layer*1.5)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6))))
                 }
                 else if (layer%2 == 0) {
-                    avgxCoord += ((ourRadius*layer*2)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
-                    avgyCoord += ((ourRadius*layer*2)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
+                    avgxCoord += ((ourRadius*layer*1.5)*Math.cos((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
+                    avgyCoord += ((ourRadius*layer*1.5)*Math.sin((Math.PI/180)*(60*(masterCirclePackingArray[x]%6)+30)))
                 }
                 
             }
