@@ -215,8 +215,8 @@ function drawNetwork(data) {
     }
   
                         
-    //randoSet.hide()
-    linesSet.push(linesFTSet, linesoneMCSet);
+    randoSet.hide()
+    linesSet.push(linesFTSet, linesoneMCSet, randoSet);
     allSet.push(FTSet, oneMCSet)
 
     allSet.attr({stroke:"#FFFFFF", "stroke-width":".3"})
