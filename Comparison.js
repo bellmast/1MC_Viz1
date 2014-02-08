@@ -215,15 +215,15 @@ function drawNetwork(data) {
     }
   
                         
-    randoSet.hide()
+    //randoSet.hide()
     linesSet.push(linesFTSet, linesoneMCSet);
     allSet.push(FTSet, oneMCSet)
 
     allSet.attr({stroke:"#FFFFFF", "stroke-width":".3"})
         
-    oneMCSet.hide()
-    FTSet.hide()
-    linesSet.hide()
+    //oneMCSet.hide()
+    //FTSet.hide()
+    //linesSet.hide()
         
     paper.circle(10,10,5).attr({fill:"#F58823", stroke:"none"})
     paper.circle(10,25,5).attr({fill:"#918070", stroke:"none"})
