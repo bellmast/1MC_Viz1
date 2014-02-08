@@ -263,8 +263,8 @@ function drawNetwork(data) {
     $('#yearbutton_radio').click(function (e) {yearClick(e);});
 }
 
-oneMCcheck = false
-FTCheck = false
+oneMCcheck = true
+FTCheck = true
 lineTarget = undefined
 
 function yearClick(e) {
