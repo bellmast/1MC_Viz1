@@ -225,7 +225,7 @@ function drawNetwork(data) {
         
     //oneMCSet.hide()
     //FTSet.hide()
-    //linesSet.hide()
+    linesSet.hide()
         
     paper.circle(10,10,5).attr({fill:"#F58823", stroke:"none"})
     paper.circle(10,25,5).attr({fill:"#918070", stroke:"none"})
