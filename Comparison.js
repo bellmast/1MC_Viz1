@@ -33,8 +33,8 @@ function drawNetwork(data) {
     orgSet = paper.set();
     allSet = paper.set();
     textSet = paper.set(); 
-    randoSet = paper.set();    
-
+    randoFTSet = paper.set();    
+    randoMCSet = paper.set();  
 
     orgNames = data[0]
 
@@ -197,7 +197,7 @@ function drawNetwork(data) {
                     linesFTSet.push(newLine)
                 }            
                 else if (randoSetCheck == "yes") {
-                    randoSet.push(newLine)
+                    randoFTSet.push(newLine)
                 }
             }
         } else if (data[i][0] == "1MC") {
@@ -208,15 +208,17 @@ function drawNetwork(data) {
                     linesoneMCSet.push(newLine)
                 }
                 else if (randoSetCheck == "yes") {
-                    randoSet.push(newLine)
+                    randoMCSet.push(newLine)
                 }
             }
         }
     }
   
                         
-    randoSet.hide()
-    linesSet.push(linesFTSet, linesoneMCSet, randoSet);
+
+    linesSet.push(linesFTSet, linesoneMCSet, randoMCSet, randoFTSet);
+    linesoneMCSet.push(randoMCSet)
+    linesFTSet.push(randoFTSet)
     allSet.push(FTSet, oneMCSet)
 
     allSet.attr({stroke:"#FFFFFF", "stroke-width":".3"})
