@@ -9,7 +9,9 @@ var legendWidth = 75;
 var legendHeight = 40;
 var checkBoxesHeight = 21;
 var padding = 10;
-var ourRadius = 5
+var ourRadius = 5;
+var FTcount = 0;
+var oneMCcount = 0;
 
 $(document).ready(function () {runProgram()});
 
@@ -114,6 +116,7 @@ function drawNetwork(data) {
         currentxArray.push(midX)
         
         if (data[i][0] == "FT") {
+            FTcount += 1
             currentyArray.push(FTy)
             totalyCoords += FTy
             if (data[i][1] == 1) {
@@ -123,6 +126,7 @@ function drawNetwork(data) {
                 totalyCoords += oneMCy
             }
         } else if (data[i][0] == "1MC") {
+            oneMCcount += 1
             currentyArray.push(oneMCy)
             totalyCoords += oneMCy
             if (data[i][1] == 1) {
@@ -231,7 +235,7 @@ function drawNetwork(data) {
     paper.circle(10,25,5).attr({fill:"#918070", stroke:"none"})
         
 
-    oneMCtext = paper.text(20, 10, "1MC").attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
+    oneMCtext = paper.text(20, 10, "1MC, n = "+oneMCcount).attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
     oneMCtext.hover(function() {
         allSet.hide()
         oneMCSet.show()
@@ -246,7 +250,7 @@ function drawNetwork(data) {
         }
     );
         
-    FTText = paper.text(20, 25, "FT").attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
+    FTText = paper.text(20, 25, "FT, n = "+FTcount).attr({"font-weight":"450", "font-family": "Arial", "font-size":14, fill:"#FF6620", 'text-anchor':"start"})
     FTText.hover(function() {
         allSet.hide()
         FTSet.show()
