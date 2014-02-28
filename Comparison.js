@@ -12,6 +12,8 @@ var padding = 10;
 var ourRadius = 5;
 var FTcount = 0;
 var oneMCcount = 0;
+var mcRandoN = 0;
+var ftRandoN = 0;
 
 $(document).ready(function () {runProgram()});
 
@@ -153,9 +155,11 @@ function drawNetwork(data) {
         if (currentxArray.length == 1) {
             avgxCoord = randomCoord(padding+legendWidth, canvasWidth-logoWidth-padding)
             if (data[i][0] == "FT") {
+                ftRandoN += 1
                 avgyCoord = randomCoord(padding, FTy-(myArrayMax*2+20))
             }
             else if (data[i][0] == "1MC") {
+                mcRandoN += 1
                 avgyCoord = randomCoord(oneMCy+(myArrayMax*2+20), canvasHeight-checkBoxesHeight-padding)
             }
             randoSetCheck = "yes"
